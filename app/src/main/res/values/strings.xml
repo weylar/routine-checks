@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Routine Checks</string>
+    <string name="my_routines">My Routines</string>
+    <string name="sort_menu">Sort menu</string>
+    <string name="home">home</string>
+    <string name="add_routine">Add routine</string>
+    <string name="new_routine">New routine</string>
+    <string name="add_description">Add description</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="set_time">Set time</string>
+    <string name="does_not_repeat">Does not repeat</string>
+    <string name="hourly">Hourly</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="routine_created_success">Routine as been created successfully</string>
+    <string name="no_routines">No Routines</string>
+    <string name="notification_channel">Notification</string>
+    <string name="channel_description">"New notification for %1$s"</string>
+    <string name="my_routine">My Routine</string>
 </resources>

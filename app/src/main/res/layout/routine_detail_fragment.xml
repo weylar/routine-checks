@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/my_routine"
+            android:textColor="@color/black"
+            android:textSize="28sp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/sample_image" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_text_view"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginHorizontal="24dp"
+        tools:text="Test Task"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        android:layout_marginHorizontal="24dp"
+        tools:text="This is description"
+        android:layout_marginTop="16dp"
+        android:id="@+id/description_text_view"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        android:layout_marginHorizontal="24dp"
+        tools:text="You have 2 hours more to next routine check"
+        android:textColor="@color/purple_500"
+        android:layout_marginTop="16dp"
+        android:id="@+id/next_up_text_view"/>
+
+
+    <ImageView
+        android:id="@+id/sad_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="24dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/sad_icon"/>
+
+    <TextView
+        android:id="@+id/rate_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        tools:text="You have done really badly"/>
+
+
+
+
+
+
+</LinearLayout>

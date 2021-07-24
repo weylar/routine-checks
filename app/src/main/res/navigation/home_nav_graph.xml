@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.weylar.routinechecks.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment" >
+
+        <action
+            android:id="@+id/action_to_routine_detail_fragment"
+            app:destination="@id/routineDetailFragment"/>
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/routineDetailFragment"
+        android:name="com.weylar.routinechecks.ui.detail.RoutineDetailFragment"
+        android:label="RoutineDetailFragment"
+        tools:layout="@layout/routine_detail_fragment">
+
+    </fragment>
+
+</navigation>

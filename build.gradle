@@ -1,6 +1,66 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.32"
+
+
+    ext {
+        kotlin_version = "1.4.32"
+        dagger_version = "2.38"
+        core_ktx_version = "1.5.0"
+        app_compat_version = "1.2.0"
+        material_version = "1.3.0"
+        constraint_version = "2.0.4"
+        kotlin_version = "1.4.30"
+        nav_version = "2.3.3"
+        frag_ktx_version = "1.2.5"
+        viewmodel_ktx_version = "2.3.0"
+        timber_version = "4.7.1"
+        view_pager2_version = "1.0.0"
+        coroutine_version = '1.4.2'
+        hilt_version = '2.31-alpha'
+        pin_view_version = '1.4.4'
+        retrofit_version = '2.9.0'
+        okHttp_version = '4.9.0'
+        gson_version = '2.8.6'
+        pref_version = '1.1.1'
+        biometrics_version = '1.1.0'
+        bottom_nav_version = '0.0.7'
+        progress_view_version = "1.1.5"
+        gradle_version = "4.1.2"
+        livedata_ktx_version = "2.3.0"
+        country_spinner_version = "2.5.0"
+        micro_blinks_version = "5.10.0@aar"
+        circular_image_version = "3.1.0"
+        picasso_version = "2.8"
+        qr_scan_version = "1.9.8"
+        base64_converter_version = "0.1.0"
+        one_time_pass_version = "2.0.1"
+        auth_progress_version = "2.0.1"
+        google_service_version = "4.3.5"
+        crashlytics_version = "2.5.1"
+        bom_version = "26.7.0"
+        lottie_version = "3.6.1"
+        work_version = "2.5.0"
+        avi_loading_version = "2.1.3"
+        room_version = "2.4.0-alpha01"
+        sql_cipher_version = "4.4.3"
+        sqlite_version = "2.1.0"
+        text_anim_version = "1.0.2"
+        password_complexity_checker_version = "2.0.1"
+        range_seeker_version = "2.0.4"
+        shimmer_version = "0.5.0"
+        multidex_version = "2.0.1"
+        play_services_auth_version = "19.0.0"
+        http_client_gson_version = "1.26.0"
+        drive_service_version = "v3-rev136-1.25.0"
+        facebook_login_version = "[5,6)"
+        twitter_sdk_version = "3.1.1"
+        swipe_recycler_version = "1.1"
+        location_version = "17.1.0"
+        google_place_version = "2.4.0"
+        segment_version = "4.9.4"
+        mix_panel_version = "2.3.2"
+    }
+
     repositories {
         google()
         jcenter()
@@ -8,6 +68,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
