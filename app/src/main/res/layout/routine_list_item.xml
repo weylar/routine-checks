@@ -2,22 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="16dp"
     android:layout_marginTop="24dp"
-    android:layout_height="wrap_content">
+    android:layout_marginEnd="16dp">
 
 
     <RadioButton
         android:id="@+id/check_radio_button"
         android:layout_width="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/status"
         android:layout_toEndOf="@id/check_radio_button"
         android:orientation="vertical">
 
@@ -25,19 +26,19 @@
             android:id="@+id/routine_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:maxLines="1"
             android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="16sp"
             tools:text="Play game" />
 
         <TextView
-            android:visibility="gone"
             android:id="@+id/routine_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:maxLines="2"
             android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:visibility="gone"
             tools:text="This is a sample" />
 
         <TextView
@@ -50,5 +51,24 @@
             tools:text="Today, 12:30 PM" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        tools:text="Missed" />
+
+    <ImageView
+        android:id="@+id/edit_icon"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/edit_icon"/>
 
 </RelativeLayout>

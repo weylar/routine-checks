@@ -27,13 +27,17 @@ class RoutineDetailViewModel
 
 
      fun computePerformance(done: Int, missed: Int): Int {
-        return done/(done + missed) * 100
+         println("Done ${done}")
+         println("Missed ${missed}")
+         println("total ${done + missed}")
+         //println("final ${(done/(done + missed)) * 100}")
+        return 70
     }
 
     fun getRoutine(id: Long): Flow<Routine> {
         val result = MutableStateFlow(dummyRoutine)
         viewModelScope.launch(Main) {
-            result.value = routineRepository.getRoutine(id)
+            _routine.value = routineRepository.getRoutine(id)
         }
         return result
     }

@@ -1,6 +1,7 @@
 package com.weylar.routinechecks.ui.home
 
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.text.format.DateUtils
 import android.view.LayoutInflater
@@ -24,6 +25,9 @@ class RoutineAdapter(
         fun bind(data: Routine, click: RoutineClickListener) {
             binding.run {
                 root.setOnClickListener { click.onRoutineClick(data) }
+                editIcon.setOnClickListener {
+                    click.onEditClick(data)
+                }
                 checkRadioButton.setOnClickListener {
                     click.onRoutineDoneClick(data)
                     strikeOutRoutine()
@@ -31,12 +35,28 @@ class RoutineAdapter(
                 routineTitle.text = data.title
                 routineDescription.text = data.description
                 routineTime.text = DateUtils.getRelativeTimeSpanString(data.nextUpTime)
+
+                when (data.lastStatus) {
+                    Status.DONE -> {
+                        status.text = "Done"
+                        status.setTextColor(Color.GREEN)
+                        status.visibility = View.VISIBLE
+                    }
+                    Status.MISSED -> {
+                        status.text = "Missed"
+                        status.setTextColor(Color.RED)
+                        status.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        status.visibility = View.GONE
+                    }
+                }
                 if (!data.description.isNullOrEmpty()) {
                     routineDescription.visibility = View.VISIBLE
                 } else {
                     routineDescription.visibility = View.GONE
                 }
-                if(data.lastStatus == Status.DONE){
+                if (data.lastStatus == Status.DONE) {
                     strikeOutRoutine()
                 }
             }
@@ -76,9 +96,10 @@ class RoutineAdapter(
         }
     }
 
-    interface RoutineClickListener{
+    interface RoutineClickListener {
         fun onRoutineClick(routine: Routine)
         fun onRoutineDoneClick(routine: Routine)
+        fun onEditClick(routine: Routine)
     }
 
 }

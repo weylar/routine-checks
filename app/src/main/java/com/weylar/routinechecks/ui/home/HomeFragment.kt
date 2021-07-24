@@ -43,15 +43,20 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private fun addRoutine() {
         _binding?.addFab?.setOnClickListener {
-            requireContext().showDialog(this) {
-                viewModel.saveRoutine(it)
-                RoutineWorker.startWorker(
-                    requireContext(),
-                    mapperImpl.mapToRoutineEntity(it)
-                )
-                requireContext().showToast(getString(R.string.routine_created_success))
-            }.show()
+            showDialog()
         }
+    }
+
+    private fun showDialog(routine: Routine? = null) {
+        requireContext().showDialog(this, routine) {
+            val update = routine?.let {r -> it.copy(id=r.id) }
+            viewModel.saveRoutine(update?:it)
+            RoutineWorker.startWorker(
+                requireContext(),
+                mapperImpl.mapToRoutineEntity(it)
+            )
+            requireContext().showToast(getString(R.string.routine_created_success))
+        }.show()
     }
 
     private fun updateView() {
@@ -59,7 +64,15 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             adapter = setUpAdapter()
             routinesRecyclerView.adapter = adapter
 
+            bottomNav.setOnItemSelectedListener {
+                if (it.itemId == R.id.nextUpFragment) {
+                    navDispatcher.openNextUp(this@HomeFragment)
+                }
+                true
+            }
+
         }
+
 
         fetchAllRoutines()
     }
@@ -84,6 +97,10 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
         override fun onRoutineDoneClick(routine: Routine) {
             viewModel.markAsDone(routine)
+        }
+
+        override fun onEditClick(routine: Routine) {
+            showDialog(routine)
         }
     })
 

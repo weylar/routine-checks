@@ -6,4 +6,5 @@ import androidx.fragment.app.Fragment
 interface AppNavDispatcher : NavDispatcher {
     override fun goBack(fragment: Fragment)
     fun openRoutineDetail(fragment: Fragment, bundle: Bundle)
+    fun openNextUp(fragment: Fragment)
 }

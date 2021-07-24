@@ -25,7 +25,7 @@ fun Context.showToast(message: String) {
 }
 
 
-fun Context.showDialog(fragment: Fragment, save: (Routine) -> Unit): Dialog {
+fun Context.showDialog(fragment: Fragment, routine: Routine? = null, save: (Routine) -> Unit): Dialog {
     val dialog = Dialog(this)
     dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
     dialog.setContentView(R.layout.add_routine_dialog_layout)
@@ -42,6 +42,11 @@ fun Context.showDialog(fragment: Fragment, save: (Routine) -> Unit): Dialog {
     val descriptionIcon = dialog.findViewById<ImageView>(R.id.description_icon)
     val calendarIcon = dialog.findViewById<ImageView>(R.id.calendar_icon)
     var dateTimeDTO: DateTimeDTO? = null
+
+    titleTv.text = routine?.title?:""
+    descriptionTv.text = routine?.description?:""
+    dateTime.text = routine?.date?.convertMilliToDateString()?:""
+
 
     titleTv.addTextChangedListener {
         if (!it.isNullOrEmpty()) {

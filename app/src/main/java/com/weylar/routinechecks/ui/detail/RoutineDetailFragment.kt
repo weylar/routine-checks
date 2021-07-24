@@ -1,6 +1,7 @@
 package com.weylar.routinechecks.ui.detail
 
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -30,16 +31,20 @@ class RoutineDetailFragment : Fragment(R.layout.routine_detail_fragment) {
     private fun updateView(id: Long) {
         viewModel.getRoutine(id)
         viewModel.routine.onEach {
-            _binding?.titleTextView?.text = it.title
-            _binding?.descriptionTextView?.text = it.description
-            _binding?.nextUpTextView?.text = "You have ${it.nextUpTime}more to next routine check"
-           val result = viewModel.computePerformance(it.doneCount, it.missedCount)
-            if (result >= 70) {
-                _binding?.sadIcon?.setImageResource(R.drawable.happy_icon)
-                _binding?.rateDescription?.text = "You have ${it.nextUpTime}more to next routine check"
-            } else {
-                _binding?.sadIcon?.setImageResource(R.drawable.sad_icon)
-                _binding?.rateDescription?.visibility = View.GONE
+            if(it.id != 0L) {
+                _binding?.titleTextView?.text = it.title
+                _binding?.descriptionTextView?.text = it.description
+                _binding?.nextUpTextView?.text =
+                    "Your next routine check is ${DateUtils.getRelativeTimeSpanString(it.nextUpTime)}"
+                val result = viewModel.computePerformance(it.doneCount, it.missedCount)
+                if (result >= 70) {
+                    _binding?.sadIcon?.setImageResource(R.drawable.happy_icon)
+                    _binding?.rateDescription?.text =
+                        "Good job! You have over 70% check for this routine"
+                } else {
+                    _binding?.sadIcon?.setImageResource(R.drawable.sad_icon)
+                    _binding?.rateDescription?.visibility = View.GONE
+                }
             }
 
 

@@ -16,6 +16,11 @@ class AppNavImpl : AppNavDispatcher {
             .navigate(R.id.action_to_routine_detail_fragment, bundle)
     }
 
+    override fun openNextUp(fragment: Fragment) {
+        NavHostFragment.findNavController(fragment)
+            .navigate(R.id.action_to_next_up_fragment)
+    }
+
     override fun popUp(fragment: Fragment) {
         NavHostFragment.findNavController(fragment).popBackStack()
     }

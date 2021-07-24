@@ -37,7 +37,7 @@ class MissedWorker(
     private suspend fun updateDatabase(routine: RoutineEntity) {
         val result = repository.getRoutine(routine.id)
             if(result.lastStatus == Status.UNKNOWN){
-                val updatedRoutine = result.copy(lastStatus = Status.DONE, missedCount = result.missedCount++)
+                val updatedRoutine = result.copy(lastStatus = Status.MISSED, missedCount = result.missedCount++)
                 repository.saveRoutine(updatedRoutine)
         }
     }

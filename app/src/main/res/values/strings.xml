@@ -20,4 +20,5 @@
     <string name="notification_channel">Notification</string>
     <string name="channel_description">"New notification for %1$s"</string>
     <string name="my_routine">My Routine</string>
+    <string name="next_up">Next Up</string>
 </resources>
